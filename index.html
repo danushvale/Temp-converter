@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .converter {
+            margin: 50px auto;
+            max-width: 300px;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h1>Temperature Converter</h1>
+        <input type="number" id="inputTemp" placeholder="Enter temperature">
+        <select id="unit">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+        </select>
+        <button onclick="convert()">Convert</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function convert() {
+            var temp = document.getElementById("inputTemp").value;
+            var unit = document.getElementById("unit").value;
+            var resultElement = document.getElementById("result");
+
+            if (unit === "celsius") {
+                var convertedTemp = (temp * 9/5) + 32;
+                resultElement.textContent = temp + " °C is " + convertedTemp + " °F";
+            } else {
+                var convertedTemp = (temp - 32) * 5/9;
+                resultElement.textContent = temp + " °F is " + convertedTemp + " °C";
+            }
+        }
+    </script>
+</body>
+</html>
